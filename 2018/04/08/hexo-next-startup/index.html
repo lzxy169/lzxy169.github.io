@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"blog.lzxy169.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="官方文档：Hexo中文文档NexT文档NexT源码 在Mac系统下搞了个博客，简单的记述一下从无到有的过程。在官方文档里有详细的安装以及使用教程，不想看文档的话可以按照下面的步骤快速的搭建。 安装 Hexo$ npm install -g hexo-cli  建站$ hexo init &lt;folder&gt;$ cd &lt;folder&gt;$ npm install  本地化测试$ h">
+    <meta name="description" content="官方文档： Hexo中文文档 NexT文档 NexT源码 在Mac系统下搞了个博客，简单的记述一下从无到有的过程。 在官方文档里有详细的安装以及使用教程，不想看文档的话可以按照下面的步骤快速的搭建。 安装 Hexo $ npm install -g hexo-cli 建站 $ hexo init &lt;folder&gt;$ cd &lt;folder&gt;$ npm install 本地化测">
 <meta property="og:type" content="article">
 <meta property="og:title" content="简记Hexo及NexT主题的安装使用">
 <meta property="og:url" content="https://blog.lzxy169.com/2018/04/08/hexo-next-startup/index.html">
 <meta property="og:site_name" content="Navy&#39;s blog">
-<meta property="og:description" content="官方文档：Hexo中文文档NexT文档NexT源码 在Mac系统下搞了个博客，简单的记述一下从无到有的过程。在官方文档里有详细的安装以及使用教程，不想看文档的话可以按照下面的步骤快速的搭建。 安装 Hexo$ npm install -g hexo-cli  建站$ hexo init &lt;folder&gt;$ cd &lt;folder&gt;$ npm install  本地化测试$ h">
+<meta property="og:description" content="官方文档： Hexo中文文档 NexT文档 NexT源码 在Mac系统下搞了个博客，简单的记述一下从无到有的过程。 在官方文档里有详细的安装以及使用教程，不想看文档的话可以按照下面的步骤快速的搭建。 安装 Hexo $ npm install -g hexo-cli 建站 $ hexo init &lt;folder&gt;$ cd &lt;folder&gt;$ npm install 本地化测">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-04-08T05:11:08.000Z">
 <meta property="article:modified_time" content="2025-11-21T03:55:46.294Z">
@@ -177,7 +177,8 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">官方文档：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Hexo"><span class="nav-number">2.</span> <span class="nav-text">安装 Hexo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BB%BA%E7%AB%99"><span class="nav-number">3.</span> <span class="nav-text">建站</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E5%8C%96%E6%B5%8B%E8%AF%95"><span class="nav-number">4.</span> <span class="nav-text">本地化测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2"><span class="nav-number">5.</span> <span class="nav-text">部署</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B8%85%E7%90%86%E7%BC%93%E5%AD%98-%E5%88%A0%E9%99%A4-public"><span class="nav-number">6.</span> <span class="nav-text">清理缓存, 删除 public</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE-NexT-%E4%B8%BB%E9%A2%98"><span class="nav-number">7.</span> <span class="nav-text">安装&amp;配置 NexT 主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sublime-Markdown"><span class="nav-number">8.</span> <span class="nav-text">Sublime Markdown</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="nav-number">1.</span> <span class="nav-text">官方文档：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-hexo20"><span class="nav-number">2.</span> <span class="nav-text">安装 Hexo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BB%BA%E7%AB%99"><span class="nav-number">3.</span> <span class="nav-text">建站</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E5%8C%96%E6%B5%8B%E8%AF%95"><span class="nav-number">4.</span> <span class="nav-text">本地化测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2"><span class="nav-number">5.</span> <span class="nav-text">部署</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B8%85%E7%90%86%E7%BC%93%E5%AD%98-%E5%88%A0%E9%99%A4-public"><span class="nav-number">6.</span> <span class="nav-text">清理缓存, 删除 public</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-next2-%E4%B8%BB%E9%A2%98"><span class="nav-number">7.</span> <span class="nav-text">安装&amp;配置 NexT
+主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sublime-markdown"><span class="nav-number">8.</span> <span class="nav-text">Sublime Markdown</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -295,56 +296,66 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h4 id="官方文档："><a href="#官方文档：" class="headerlink" title="官方文档："></a>官方文档：</h4><p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">Hexo中文文档</a><br><a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/getting-started/">NexT文档</a><br><a target="_blank" rel="noopener" href="https://github.com/next-theme/hexo-theme-next">NexT源码</a></p>
-<p>在Mac系统下搞了个博客，简单的记述一下从无到有的过程。<br>在官方文档里有详细的安装以及使用教程，不想看文档的话可以按照下面的步骤快速的搭建。</p>
-<h4 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a></h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
-<h4 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ cd &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
-
-<h4 id="本地化测试"><a href="#本地化测试" class="headerlink" title="本地化测试"></a>本地化测试</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
-<p>浏览器输入：<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a> 就可以看到了</p>
-<h4 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo g -d</span><br></pre></td></tr></table></figure>
-
-<h4 id="清理缓存-删除-public"><a href="#清理缓存-删除-public" class="headerlink" title="清理缓存, 删除 public"></a>清理缓存, 删除 public</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
-
-<p><strong>Hexo目录</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">_config.yml  博客的配置文件</span><br><span class="line">scaffolds    博客文章模板</span><br><span class="line">source       博客文章目录</span><br><span class="line">themes       存放主题文件</span><br></pre></td></tr></table></figure>
-
-<p>**Tip: ** hexo deploy出错解决方法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
-<h4 id="安装-配置-NexT-主题"><a href="#安装-配置-NexT-主题" class="headerlink" title="安装&amp;配置 NexT 主题"></a>安装&amp;配置 <a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/getting-started/">NexT</a> 主题</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd hexo-site</span><br><span class="line">npm install hexo-theme-next</span><br><span class="line"></span><br><span class="line">or</span><br><span class="line"></span><br><span class="line">cd hexo-site</span><br><span class="line">git clone https://github.com/next-theme/hexo-theme-next themes/next</span><br><span class="line"></span><br><span class="line">更新主题:</span><br><span class="line">npm install hexo-theme-next@latest</span><br></pre></td></tr></table></figure>
-
-<p><strong>主题配置文件</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Installed through npm</span><br><span class="line">cp node_modules/hexo-theme-next/_config.yml _config.next.yml</span><br><span class="line"></span><br><span class="line"># Installed through Git</span><br><span class="line">cp themes/next/_config.yml _config.next.yml</span><br></pre></td></tr></table></figure>
-
-<p><strong>配置主题</strong><br>打开站点配置文件**_config.yml**，找到<strong>theme</strong>字段，并将其值更改为<strong>next</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
-
-<p><strong>更改主题外观</strong><br>更改 _config.next.yml 文件</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Schemes</span><br><span class="line"># scheme: Muse</span><br><span class="line"># scheme: Mist</span><br><span class="line"># scheme: Pisces</span><br><span class="line"> scheme: Gemini</span><br></pre></td></tr></table></figure>
-
-<p><strong>使主题生效：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo server -g</span><br><span class="line">$ hexo deploy -g</span><br></pre></td></tr></table></figure>
-
-<p><strong>hexo 简单的命令格式</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g == hexo generate</span><br><span class="line">hexo d == hexo deploy</span><br><span class="line">hexo s == hexo server</span><br><span class="line">hexo n == hexo new</span><br></pre></td></tr></table></figure>
-
-<p>到这里博客的本地搭建已经完成了，这只是开始。<br>如果想要博客让别人也能看见，那就得申请域名把博客部署到服务器，然后别人通过域名访问就可以浏览你的博客啦。<br>当然你可以把博客部署到<a target="_blank" rel="noopener" href="https://github.com/">GitHub</a>或者<a target="_blank" rel="noopener" href="https://coding.net/">Coding</a>又或者别的服务器等，域名购买有<a target="_blank" rel="noopener" href="https://www.dnspod.cn/">DNSPod</a>，<a target="_blank" rel="noopener" href="https://wanwang.aliyun.com/">万网</a>，<a target="_blank" rel="noopener" href="https://sg.godaddy.com/">GoDaddy</a>等等，有国内，国外自己考虑，之后还想要自己的博客有个性或者更好用那就选一个好看的主题DIY了。</p>
-<p>至于写Markdown写作工具，各有所爱，我用的是<a target="_blank" rel="noopener" href="https://www.sublimetext.com/">Sublime Text</a>，装上 <a target="_blank" rel="noopener" href="https://packagecontrol.io/">Package Control</a>，<a target="_blank" rel="noopener" href="https://packagecontrol.io/packages/MarkdownEditing">Markdown​Editing</a>,  <a target="_blank" rel="noopener" href="https://packagecontrol.io/packages/Markdown%20Preview">Markdown Preview</a>或者<a target="_blank" rel="noopener" href="https://packagecontrol.io/packages/OmniMarkupPreviewer">Omni​Markup​Previewer</a> 等插件，就可以愉快的玩耍了。</p>
-<h4 id="Sublime-Markdown"><a href="#Sublime-Markdown" class="headerlink" title="Sublime Markdown"></a>Sublime Markdown</h4><p><strong>MAC 键盘</strong><br>⌘：command<br>⌥：option&#x2F;alt<br>⇧：shift<br>⌃：control<br>⎋：esc</p>
-<p><strong>MarkdownEditing:</strong></p>
-<ul>
-<li>安装后针对 md\mdown\mmd\txt 格式文件启用插件。颜色方案仿 Byword 及 iA writer。</li>
-<li>自动匹配星号（*）、下划线（_）及反引号（&#96;），选中文本按下以上符号能自动在所选文本前后添加配对的符号，方便粗体、斜体和代码框的输入。</li>
-<li>直接输入配对的符号后按下退格键（backspace），则两个符号都会被删除；直接输入配对的符号后按下空格键，则会自动删除后一个。</li>
-<li>对“选中文字后输入左括号”这一动作进行了调整，以便插入 markdown 链接。</li>
-<li>拷贝一个链接，选中文本后按下 ⌘⌥V 会自动插入内联链接。</li>
-<li>拷贝一个链接，选中文本后按下 ⌘⌥R 会自动插入引用链接。</li>
-<li>⌘K 插入链接；⌘⇧K 插入图片。</li>
-<li>⌘B 和 ⌘I 分别用于加粗体和斜体。</li>
-<li>选中文本后按下 # 会自动在文本前后进行配对，可重复按下来定义标题级别，还可用 ⌘⇧空格来增加 # 与所选文本之间的空格（也是自动配对的）。</li>
-</ul>
+    <div class="post-body" itemprop="articleBody"><h4 id="官方文档">官方文档：</h4>
+<p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">Hexo中文文档</a> <a
+target="_blank" rel="noopener" href="https://theme-next.js.org/docs/getting-started/">NexT文档</a> <a
+target="_blank" rel="noopener" href="https://github.com/next-theme/hexo-theme-next">NexT源码</a></p>
+<p>在Mac系统下搞了个博客，简单的记述一下从无到有的过程。
+在官方文档里有详细的安装以及使用教程，不想看文档的话可以按照下面的步骤快速的搭建。</p>
+<h4 id="安装-hexo20">安装 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a></h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<h4 id="建站">建站</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ cd &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+<h4 id="本地化测试">本地化测试</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
+<p>浏览器输入：http://localhost:4000 就可以看到了</p>
+<h4 id="部署">部署</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo g -d</span><br></pre></td></tr></table></figure>
+<h4 id="清理缓存-删除-public">清理缓存, 删除 public</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
+<p><strong>Hexo目录</strong> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">_config.yml  博客的配置文件</span><br><span class="line">scaffolds    博客文章模板</span><br><span class="line">source       博客文章目录</span><br><span class="line">themes       存放主题文件</span><br></pre></td></tr></table></figure></p>
+<p><strong>Tip: </strong> hexo deploy出错解决方法： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
+<h4 id="安装配置-next2-主题">安装&amp;配置 <a
+target="_blank" rel="noopener" href="https://theme-next.js.org/docs/getting-started/">NexT</a>
+主题</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd hexo-site</span><br><span class="line">npm install hexo-theme-next</span><br><span class="line"></span><br><span class="line">or</span><br><span class="line"></span><br><span class="line">cd hexo-site</span><br><span class="line">git clone https://github.com/next-theme/hexo-theme-next themes/next</span><br><span class="line"></span><br><span class="line">更新主题:</span><br><span class="line">npm install hexo-theme-next@latest</span><br></pre></td></tr></table></figure>
+<p><strong>主题配置文件</strong> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Installed through npm</span><br><span class="line">cp node_modules/hexo-theme-next/_config.yml _config.next.yml</span><br><span class="line"></span><br><span class="line"># Installed through Git</span><br><span class="line">cp themes/next/_config.yml _config.next.yml</span><br></pre></td></tr></table></figure></p>
+<p><strong>配置主题</strong>
+打开站点配置文件**_config.yml<strong>，找到</strong>theme<strong>字段，并将其值更改为</strong>next**
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure></p>
+<p><strong>更改主题外观</strong> 更改 _config.next.yml 文件
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Schemes</span><br><span class="line"># scheme: Muse</span><br><span class="line"># scheme: Mist</span><br><span class="line"># scheme: Pisces</span><br><span class="line"> scheme: Gemini</span><br></pre></td></tr></table></figure></p>
+<p><strong>使主题生效：</strong> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo server -g</span><br><span class="line">$ hexo deploy -g</span><br></pre></td></tr></table></figure></p>
+<p><strong>hexo 简单的命令格式</strong> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g == hexo generate</span><br><span class="line">hexo d == hexo deploy</span><br><span class="line">hexo s == hexo server</span><br><span class="line">hexo n == hexo new</span><br></pre></td></tr></table></figure></p>
+<p>到这里博客的本地搭建已经完成了，这只是开始。
+如果想要博客让别人也能看见，那就得申请域名把博客部署到服务器，然后别人通过域名访问就可以浏览你的博客啦。
+当然你可以把博客部署到<a target="_blank" rel="noopener" href="https://github.com/">GitHub</a>或者<a
+target="_blank" rel="noopener" href="https://coding.net/">Coding</a>又或者别的服务器等，域名购买有<a
+target="_blank" rel="noopener" href="https://www.dnspod.cn/">DNSPod</a>，<a
+target="_blank" rel="noopener" href="https://wanwang.aliyun.com/">万网</a>，<a
+target="_blank" rel="noopener" href="https://sg.godaddy.com/">GoDaddy</a>等等，有国内，国外自己考虑，之后还想要自己的博客有个性或者更好用那就选一个好看的主题DIY了。</p>
+<p>至于写Markdown写作工具，各有所爱，我用的是<a
+target="_blank" rel="noopener" href="https://www.sublimetext.com/">Sublime Text</a>，装上 <a
+target="_blank" rel="noopener" href="https://packagecontrol.io/">Package Control</a>，<a
+target="_blank" rel="noopener" href="https://packagecontrol.io/packages/MarkdownEditing">Markdown​Editing</a>,
+<a target="_blank" rel="noopener" href="https://packagecontrol.io/packages/Markdown%20Preview">Markdown
+Preview</a>或者<a
+target="_blank" rel="noopener" href="https://packagecontrol.io/packages/OmniMarkupPreviewer">Omni​Markup​Previewer</a>
+等插件，就可以愉快的玩耍了。</p>
+<h4 id="sublime-markdown">Sublime Markdown</h4>
+<p><strong>MAC 键盘</strong> ⌘：command ⌥：option/alt ⇧：shift
+⌃：control ⎋：esc</p>
+<p><strong>MarkdownEditing:</strong> - 安装后针对
+md格式文件启用插件。颜色方案仿 Byword 及 iA writer。 -
+自动匹配星号（*）、下划线（_）及反引号（`），选中文本按下以上符号能自动在所选文本前后添加配对的符号，方便粗体、斜体和代码框的输入。
+-
+直接输入配对的符号后按下退格键（backspace），则两个符号都会被删除；直接输入配对的符号后按下空格键，则会自动删除后一个。
+- 对“选中文字后输入左括号”这一动作进行了调整，以便插入 markdown 链接。 -
+拷贝一个链接，选中文本后按下 ⌘⌥V 会自动插入内联链接。 -
+拷贝一个链接，选中文本后按下 ⌘⌥R 会自动插入引用链接。 - ⌘K 插入链接；⌘⇧K
+插入图片。 - ⌘B 和 ⌘I 分别用于加粗体和斜体。 - 选中文本后按下 #
+会自动在文本前后进行配对，可重复按下来定义标题级别，还可用 ⌘⇧空格来增加
+# 与所选文本之间的空格（也是自动配对的）。</p>
 
     </div>
 
