@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inconsolata:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous" defer></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.lzxy169.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="1. 顺序查找说明：顺序查找适合于存储结构为顺序存储或链接存储的线性表。 基本思想：顺序查找也称为线形查找，属于无序查找算法。从数据结构线形表的一端开始，顺序扫描，依次将扫描到的结点关键字与给定值k相比较，若相等则表示查找成功；若扫描结束仍没有找到关键字等于k的结点，表示查找失败。 复杂度分析：查找成功时的平均查找长度为：（假设每个数据元素的概率相等） ASL &#x3D; 1&#x2F;n(1+">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法之查找">
+<meta property="og:url" content="https://blog.lzxy169.com/2018/04/10/algorithm-search/index.html">
+<meta property="og:site_name" content="Navy&#39;s blog">
+<meta property="og:description" content="1. 顺序查找说明：顺序查找适合于存储结构为顺序存储或链接存储的线性表。 基本思想：顺序查找也称为线形查找，属于无序查找算法。从数据结构线形表的一端开始，顺序扫描，依次将扫描到的结点关键字与给定值k相比较，若相等则表示查找成功；若扫描结束仍没有找到关键字等于k的结点，表示查找失败。 复杂度分析：查找成功时的平均查找长度为：（假设每个数据元素的概率相等） ASL &#x3D; 1&#x2F;n(1+">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-04-10T04:25:58.000Z">
+<meta property="article:modified_time" content="2018-07-31T05:14:25.000Z">
+<meta property="article:author" content="Navy">
+<meta property="article:tag" content="c">
+<meta property="article:tag" content="c++">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://blog.lzxy169.com/2018/04/10/algorithm-search/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.lzxy169.com/2018/04/10/algorithm-search/","path":"2018/04/10/algorithm-search/","title":"算法之查找"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法之查找 | Navy's blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+  <script class="next-config" data-name="wavedrom" type="application/json">{"enable":true,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/wavedrom/3.5.0/wavedrom.min.js","integrity":"sha256-INLAoJc6quTNfiMWkGZniYO2cxE8mHpddnLow1m6RFs="}}</script>
+  <script class="next-config" data-name="wavedrom_skin" type="application/json">{"enable":true,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/wavedrom/3.5.0/skins/default.js","integrity":"sha256-fduc/Zszk5ezWws2uInY/ALWVmIrmV6VTgXbsYSReFI="}}</script>
+  <script src="/js/third-party/tags/wavedrom.js" defer></script>
+
+
+  <script src="/js/third-party/pace.js" defer></script>
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/3.0.1/quicklink.umd.js" integrity="sha256-44BednzIpUeQJcY8qtLyarFu0UCCTbgmWOvaoehiFQQ=" crossorigin="anonymous" defer></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://blog.lzxy169.com/2018/04/10/algorithm-search/"}</script>
+  <script src="/js/third-party/quicklink.js" defer></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Navy's blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Navy's blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">2</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">4</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">9</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E9%A1%BA%E5%BA%8F%E6%9F%A5%E6%89%BE"><span class="nav-number">1.</span> <span class="nav-text">1. 顺序查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE"><span class="nav-number">2.</span> <span class="nav-text">2. 二分查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%8F%92%E5%80%BC%E6%9F%A5%E6%89%BE"><span class="nav-number">3.</span> <span class="nav-text">3. 插值查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%9F%A5%E6%89%BE"><span class="nav-number">4.</span> <span class="nav-text">4. 斐波那契查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E6%A0%91%E8%A1%A8%E6%9F%A5%E6%89%BE"><span class="nav-number">5.</span> <span class="nav-text">5. 树表查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E5%88%86%E5%9D%97%E6%9F%A5%E6%89%BE"><span class="nav-number">6.</span> <span class="nav-text">6. 分块查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%E5%93%88%E5%B8%8C%E6%9F%A5%E6%89%BE"><span class="nav-number">7.</span> <span class="nav-text">7. 哈希查找</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Navy"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Navy</p>
+  <div class="site-description" itemprop="description">It is about walking the path and responding to the heart.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lzxy169" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lzxy169" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lzxy169@gmail.com" title="E-Mail → mailto:lzxy169@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.lzxy169.com/2018/04/10/algorithm-search/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Navy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Navy's blog">
+      <meta itemprop="description" content="It is about walking the path and responding to the heart.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法之查找 | Navy's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法之查找<a href="https://github.com/lzxy169/NavyBlogSource/edit/master/source/_posts/algorithm-search.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-04-10 12:25:58" itemprop="dateCreated datePublished" datetime="2018-04-10T12:25:58+08:00">2018-04-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2018-07-31 13:14:25" itemprop="dateModified" datetime="2018-07-31T13:14:25+08:00">2018-07-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h3 id="1-顺序查找"><a href="#1-顺序查找" class="headerlink" title="1. 顺序查找"></a>1. 顺序查找</h3><p><strong>说明：</strong><br>顺序查找适合于存储结构为顺序存储或链接存储的线性表。</p>
+<p><strong>基本思想：</strong><br>顺序查找也称为线形查找，属于无序查找算法。从数据结构线形表的一端开始，顺序扫描，依次将扫描到的结点关键字与给定值k相比较，若相等则表示查找成功；若扫描结束仍没有找到关键字等于k的结点，表示查找失败。</p>
+<p><strong>复杂度分析：</strong><br>查找成功时的平均查找长度为：（假设每个数据元素的概率相等） ASL &#x3D; 1&#x2F;n(1+2+3+…+n) &#x3D; (n+1)&#x2F;2 ;<br>当查找不成功时，需要n+1次比较，时间复杂度为O(n); 所以，顺序查找的时间复杂度为O(n)。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//顺序查找</span><br><span class="line">int SequenceSearch(int a[], int value, int n)</span><br><span class="line">&#123;</span><br><span class="line">    int i;</span><br><span class="line">    for(i=0; i&lt;n; i++)</span><br><span class="line">        if(a[i]==value)</span><br><span class="line">            return i;</span><br><span class="line">    return -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-二分查找"><a href="#2-二分查找" class="headerlink" title="2. 二分查找"></a>2. 二分查找</h3><p><strong>说明：</strong><br>元素必须是有序的，如果是无序的则要先进行排序操作。</p>
+<p><strong>基本思想：</strong><br>也称为是折半查找，属于有序查找算法。用给定值k先与中间结点的关键字比较，中间结点把线形表分成两个子表，若相等则查找成功；若不相等，再根据k与该中间结点关键字的比较结果确定下一步查找哪个子表，这样递归进行，直到查找到或查找结束发现表中没有这样的结点。</p>
+<p><strong>复杂度分析：</strong><br>最坏情况下，关键词比较次数为$\log_2 (n+1)$，且期望时间复杂度为O($\log_2 n$)；<br>注：折半查找的前提条件是需要有序表顺序存储，对于静态查找表，一次排序后不再变化，折半查找能得到不错的效率。但对于需要频繁执行插入或删除操作的数据集来说，维护有序的排序会带来不小的工作量，那就不建议使用。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//二分查找（折半查找），版本1</span><br><span class="line">int BinarySearch1(int a[], int value, int n)</span><br><span class="line">&#123;</span><br><span class="line">    int low, high, mid;</span><br><span class="line">    low = 0;</span><br><span class="line">    high = n-1;</span><br><span class="line">    while(low&lt;=high)</span><br><span class="line">    &#123;</span><br><span class="line">        mid = (low+high)/2;</span><br><span class="line">        if(a[mid]==value)</span><br><span class="line">            return mid;</span><br><span class="line">        if(a[mid]&gt;value)</span><br><span class="line">            high = mid-1;</span><br><span class="line">        if(a[mid]&lt;value)</span><br><span class="line">            low = mid+1;</span><br><span class="line">    &#125;</span><br><span class="line">    return -1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//二分查找，递归版本</span><br><span class="line">int BinarySearch2(int a[], int value, int low, int high)</span><br><span class="line">&#123;</span><br><span class="line">    int mid = low+(high-low)/2;</span><br><span class="line">    if(a[mid]==value)</span><br><span class="line">        return mid;</span><br><span class="line">    if(a[mid]&gt;value)</span><br><span class="line">        return BinarySearch2(a, value, low, mid-1);</span><br><span class="line">    if(a[mid]&lt;value)</span><br><span class="line">        return BinarySearch2(a, value, mid+1, high);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-插值查找"><a href="#3-插值查找" class="headerlink" title="3. 插值查找"></a>3. 插值查找</h3><p><strong>说明：</strong><br>在介绍插值查找之前，首先考虑一个新问题，为什么上述算法一定要是折半，而不是折四分之一或者折更多呢？打个比方，在英文字典里面查“apple”，你下意识翻开字典是翻前面的书页还是后面的书页呢？如果再让你查“zoo”，你又怎么查？很显然，这里你绝对不会是从中间开始查起，而是一定目的的往前或往后翻。同样的，比如要在取值范围1 ~ 10000 之间 100 个元素从小到大均匀分布的数组中查找5，我们自然会考虑从数组下标较小的开始查找。经过以上分析，折半查找这种查找方式，不是自适应的（也就是说是傻瓜式的）。二分查找中查找点计算如下：mid&#x3D;(low+high)&#x2F;2, 即mid&#x3D;low+1&#x2F;2*(high-low);通过类比，我们可以将查找的点改进为如下：mid&#x3D;low+(key-a[low])&#x2F;(a[high]-a[low])*(high-low)也就是将上述的比例参数1&#x2F;2改进为自适应的，根据关键字在整个有序表中所处的位置，让mid值的变化更靠近关键字key，这样也就间接地减少了比较次数。</p>
+<p><strong>基本思想：</strong><br>基于二分查找算法，将查找点的选择改进为自适应选择，可以提高查找效率。当然，差值查找也属于有序查找。<br>注：对于表长较大，而关键字分布又比较均匀的查找表来说，插值查找算法的平均性能比折半查找要好的多。反之，数组中如果分布非常不均匀，那么插值查找未必是很合适的选择。</p>
+<p><strong>复杂度分析：</strong><br>查找成功或者失败的时间复杂度均为O($\log_2 (log_2 n)$)。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//插值查找</span><br><span class="line">int InsertionSearch(int a[], int value, int low, int high)</span><br><span class="line">&#123;</span><br><span class="line">    int mid = low+(value-a[low])/(a[high]-a[low])*(high-low);</span><br><span class="line">    if(a[mid]==value)</span><br><span class="line">        return mid;</span><br><span class="line">    if(a[mid]&gt;value)</span><br><span class="line">        return InsertionSearch(a, value, low, mid-1);</span><br><span class="line">    if(a[mid]&lt;value)</span><br><span class="line">        return InsertionSearch(a, value, mid+1, high);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-斐波那契查找"><a href="#4-斐波那契查找" class="headerlink" title="4. 斐波那契查找"></a>4. 斐波那契查找</h3><p><strong>说明：</strong><br>在介绍斐波那契查找算法之前，我们先介绍一下很它紧密相连并且大家都熟知的一个概念——黄金分割。黄金比例又称黄金分割，是指事物各部分间一定的数学比例关系，即将整体一分为二，较大部分与较小部分之比等于整体与较大部分之比，其比值约为1:0.618或1.618:1。</p>
+<p>斐波那契数列：1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89…….（从第三个数开始，后边每一个数都是前两个数的和）。<br>在数学上，斐波纳契数列以如下被以递归的方法定义：F(1)&#x3D;1，F(2)&#x3D;1, F(n)&#x3D;F(n-1)+F(n-2)（n&gt;&#x3D;2，n∈N*）然后我们会发现，随着斐波那契数列的递增，前后两个数的比值会越来越接近0.618，利用这个特性，我们就可以将黄金比例运用到查找技术中。</p>
+<p><strong>基本思想：</strong><br>也是二分查找的一种提升算法，通过运用黄金比例的概念在数列中选择查找点进行查找，提高查找效率。同样地，斐波那契查找也属于一种有序查找算法。<br>相对于折半查找，一般将待比较的key值与第mid&#x3D;（low+high）&#x2F;2位置的元素比较，比较结果分三种情况：<br>1）相等，mid位置的元素即为所求<br>2）&gt;，low&#x3D;mid+1;<br>3）&lt;，high&#x3D;mid-1。<br>斐波那契查找与折半查找很相似，他是根据斐波那契序列的特点对有序表进行分割的。他要求开始表中记录的个数为某个斐波那契数小1，及n&#x3D;F(k)-1;<br>开始将k值与第F(k-1)位置的记录进行比较(及mid&#x3D;low+F(k-1)-1),比较结果也分为三种<br>1）相等，mid位置的元素即为所求<br>2）&gt;，low&#x3D;mid+1,k-&#x3D;2;<br>说明：low&#x3D;mid+1说明待查找的元素在[mid+1,high]范围内，k-&#x3D;2 说明范围[mid+1,high]内的元素个数为n-(F(k-1))&#x3D; Fk-1-F(k-1)&#x3D;Fk-F(k-1)-1&#x3D;F(k-2)-1个，所以可以递归的应用斐波那契查找。<br>3）&lt;，high&#x3D;mid-1,k-&#x3D;1。<br>说明：low&#x3D;mid+1说明待查找的元素在[low,mid-1]范围内，k-&#x3D;1 说明范围[low,mid-1]内的元素个数为F(k-1)-1个，所以可以递归 的应用斐波那契查找。</p>
+<p><strong>复杂度分析：</strong><br>最坏情况下，时间复杂度为O($\log_2 n$)，且其期望复杂度也为O($\log_2 n$)。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 斐波那契查找.cpp </span><br><span class="line">#include &quot;stdafx.h&quot;</span><br><span class="line">#include &lt;memory&gt;</span><br><span class="line">#include  &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">const int max_size=20;//斐波那契数组的长度</span><br><span class="line"></span><br><span class="line">/*构造一个斐波那契数组*/ </span><br><span class="line">void Fibonacci(int * F)</span><br><span class="line">&#123;</span><br><span class="line">    F[0]=0;</span><br><span class="line">    F[1]=1;</span><br><span class="line">    for(int i=2; i&lt;max_size; ++i)</span><br><span class="line">        F[i]=F[i-1]+F[i-2];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*定义斐波那契查找法*/  </span><br><span class="line">int FibonacciSearch(int *a, int n, int key)  //a为要查找的数组,n为要查找的数组长度,key为要查找的关键字</span><br><span class="line">&#123;</span><br><span class="line">  int low=0;</span><br><span class="line">  int high=n-1;</span><br><span class="line">  </span><br><span class="line">  int F[max_size];</span><br><span class="line">  Fibonacci(F);//构造一个斐波那契数组F </span><br><span class="line"></span><br><span class="line">  int k=0;</span><br><span class="line">  while(n&gt;F[k]-1)//计算n位于斐波那契数列的位置</span><br><span class="line">      ++k;</span><br><span class="line"></span><br><span class="line">  int  * temp;//将数组a扩展到F[k]-1的长度</span><br><span class="line">  temp=new int [F[k]-1];</span><br><span class="line">  memcpy(temp,a,n*sizeof(int));</span><br><span class="line"></span><br><span class="line">  for(int i=n;i&lt;F[k]-1;++i)</span><br><span class="line">     temp[i]=a[n-1];</span><br><span class="line">  </span><br><span class="line">  while(low&lt;=high)</span><br><span class="line">  &#123;</span><br><span class="line">    int mid=low+F[k-1]-1;</span><br><span class="line">    if(key&lt;temp[mid])</span><br><span class="line">    &#123;</span><br><span class="line">      high=mid-1;</span><br><span class="line">      k-=1;</span><br><span class="line">    &#125;</span><br><span class="line">    else if(key&gt;temp[mid])</span><br><span class="line">    &#123;</span><br><span class="line">     low=mid+1;</span><br><span class="line">     k-=2;</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">       if(mid&lt;n)</span><br><span class="line">           return mid; //若相等则说明mid即为查找到的位置</span><br><span class="line">       else</span><br><span class="line">           return n-1; //若mid&gt;=n则说明是扩展的数值,返回n-1</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;  </span><br><span class="line">  delete [] temp;</span><br><span class="line">  return -1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int a[] = &#123;0,16,24,35,47,59,62,73,88,99&#125;;</span><br><span class="line">    int key=100;</span><br><span class="line">    int index=FibonacciSearch(a,sizeof(a)/sizeof(int),key);</span><br><span class="line">    cout&lt;&lt;key&lt;&lt;&quot; is located at:&quot;&lt;&lt;index;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-树表查找"><a href="#5-树表查找" class="headerlink" title="5. 树表查找"></a>5. 树表查找</h3><p><strong>说明：</strong><br><strong>5.1 最简单的树表查找算法——二叉树查找算法。</strong></p>
+<p><strong>基本思想：</strong><br>二叉查找树是先对待查找的数据进行生成树，确保树的左分支的值小于右分支的值，然后在就行和每个节点的父节点比较大小，查找最适合的范围。 这个算法的查找效率很高，但是如果使用这种查找方法要首先创建树。<br>二叉查找树（BinarySearch Tree，也叫二叉搜索树，或称二叉排序树Binary Sort Tree）或者是一棵空树，或者是具有下列性质的二叉树：<br>　　1）若任意节点的左子树不空，则左子树上所有结点的值均小于它的根结点的值；<br>　　2）若任意节点的右子树不空，则右子树上所有结点的值均大于它的根结点的值；<br>　　3）任意节点的左、右子树也分别为二叉查找树。<br>二叉查找树性质：对二叉查找树进行中序遍历，即可得到有序的数列。<br>有关二叉查找树的查找、插入、删除等操作的详细讲解，请移步浅谈算法和数据结构:  <a target="_blank" rel="noopener" href="http://www.cnblogs.com/yangecnu/p/Introduce-Binary-Search-Tree.html">二叉查找树</a></p>
+<p><strong>复杂度分析：</strong><br>它和二分查找一样，插入和查找的时间复杂度均为O($\log_2 n$)，但是在最坏的情况下仍然会有O(n)的时间复杂度。原因在于插入和删除元素的时候，树没有保持平衡（比如，我们查找上图（b）中的“93”，我们需要进行n次查找操作）。我们追求的是在最坏的情况下仍然有较好的时间复杂度，这就是平衡查找树设计的初衷。<br>基于二叉查找树进行优化，进而可以得到其他的树表查找算法，如平衡树、红黑树等高效算法。</p>
+<p><strong>5.2 平衡查找树之2-3查找树（2-3 Tree）</strong><br>　　2-3查找树定义：和二叉树不一样，2-3树运行每个节点保存1个或者两个的值。对于普通的2节点(2-node)，他保存1个key和左右两个自己点。对应3节点(3-node)，保存两个Key，2-3查找树的定义如下：<br>　　1）要么为空，要么：<br>　　2）对于2节点，该节点保存一个key及对应value，以及两个指向左右节点的节点，左节点也是一个2-3节点，所有的值都比key要小，右节点也是一个2-3节点，所有的值比key要大。<br>　　3）对于3节点，该节点保存两个key及对应value，以及三个指向左中右的节点。左节点也是一个2-3节点，所有的值均比两个key中的最小的key还要小；中间节点也是一个2-3节点，中间节点的key值在两个跟节点key值之间；右节点也是一个2-3节点，节点的所有key值比两个key中的最大的key还要大。</p>
+<p><strong>2-3查找树的性质：</strong><br>　　1）如果中序遍历2-3查找树，就可以得到排好序的序列；<br>　　2）在一个完全平衡的2-3查找树中，根节点到每一个为空节点的距离都相同。（这也是平衡树中“平衡”一词的概念，根节点到叶节点的最长距离对应于查找算法的最坏情况，而平衡树中根节点到叶节点的距离都一样，最坏情况也具有对数复杂度。）<br><strong>复杂度分析：</strong><br>2-3树的查找效率与树的高度是息息相关的。</p>
+<ul>
+<li>在最坏的情况下，也就是所有的节点都是2-node节点，查找效率为lgN</li>
+<li>在最好的情况下，所有的节点都是3-node节点，查找效率为log3N约等于0.631lgN, 距离来说，对于1百万个节点的2-3树，树的高度为12-20之间，对于10亿个节点的2-3树，树的高度为18-30之间。对于插入来说，只需要常数次操作即可完成，因为他只需要修改与该节点关联的节点即可，不需要检查其他节点，所以效率和查找类似。下面是2-3查找树的效率：</li>
+</ul>
+<p><strong>5.3 平衡查找树之红黑树（Red-Black Tree）</strong><br>　　2-3查找树能保证在插入元素之后能保持树的平衡状态，最坏情况下即所有的子节点都是2-node，树的高度为lgn，从而保证了最坏情况下的时间复杂度。但是2-3树实现起来比较复杂，于是就有了一种简单实现2-3树的数据结构，即红黑树（Red-Black Tree）。</p>
+<p><strong>基本思想：</strong><br>红黑树的思想就是对2-3查找树进行编码，尤其是对2-3查找树中的3-nodes节点添加额外的信息。红黑树中将节点之间的链接分为两种不同类型，红色链接，他用来链接两个2-nodes节点来表示一个3-nodes节点。黑色链接用来链接普通的2-3节点。特别的，使用红色链接的两个2-nodes来表示一个3-nodes节点，并且向左倾斜，即一个2-node是另一个2-node的左子节点。这种做法的好处是查找的时候不用做任何修改，和普通的二叉查找树相同。</p>
+<p><strong>红黑树的定义：</strong><br>红黑树是一种具有红色和黑色链接的平衡查找树，同时满足：</p>
+<ul>
+<li>红色节点向左倾斜</li>
+<li>一个节点不可能有两个红色链接</li>
+<li>整个树完全黑色平衡，即从根节点到所以叶子结点的路径上，黑色链接的个数都相同。<br>　　下图可以看到红黑树其实是2-3树的另外一种表现形式：如果我们将红色的连线水平绘制，那么他链接的两个2-node节点就是2-3树中的一个3-node节点了。<br>**红黑树的性质：**整个树完全黑色平衡，即从根节点到所以叶子结点的路径上，黑色链接的个数都相同（2-3树的第2）性质，从根节点到叶子节点的距离都相等）。<br>**复杂度分析：**最坏的情况就是，红黑树中除了最左侧路径全部是由3-node节点组成，即红黑相间的路径长度是全黑路径长度的2倍。红黑树的平均高度大约为logn。<br>红黑树这种数据结构应用十分广泛，在多种编程语言中被用作符号表的实现，如：</li>
+<li>Java中的java.util.TreeMap,java.util.TreeSet；</li>
+<li>C++ STL中的：map,multimap,multiset；</li>
+<li>.NET中的：SortedDictionary,SortedSet 等。</li>
+</ul>
+<p><strong>5.4 B树和B+树（B Tree&#x2F;B+ Tree）</strong><br>平衡查找树中的2-3树以及其实现红黑树。2-3树种，一个节点最多有2个key，而红黑树则使用染色的方式来标识这两个key。<br>维基百科对B树的定义为“在计算机科学中，B树（B-tree）是一种树状数据结构，它能够存储数据、对其进行排序并允许以O(log n)的时间复杂度运行进行查找、顺序读取、插入和删除的数据结构。B树，概括来说是一个节点可以拥有多于2个子节点的二叉查找树。与自平衡二叉查找树不同，B树为系统最优化大块数据的读和写操作。B-tree算法减少定位记录时所经历的中间过程，从而加快存取速度。普遍运用在数据库和文件系统。</p>
+<p><strong>B树定义：</strong><br>B树可以看作是对2-3查找树的一种扩展，即他允许每个节点有M-1个子节点。</p>
+<ul>
+<li>根节点至少有两个子节点</li>
+<li>每个节点有M-1个key，并且以升序排列</li>
+<li>位于M-1和M key的子节点的值位于M-1 和M key对应的Value之间</li>
+<li>其它节点至少有M&#x2F;2个子节点<br>可以看到B树是2-3树的一种扩展，他允许一个节点有多于2个的元素。B树的插入及平衡化操作和2-3树很相似</li>
+</ul>
+<p><strong>B+树定义：</strong><br>B+树是对B树的一种变形树，它与B树的差异在于：</p>
+<ul>
+<li>有k个子结点的结点必然有k个关键码；</li>
+<li>非叶结点仅具有索引作用，跟记录有关的信息均存放在叶结点中。</li>
+<li>树的所有叶结点构成一个有序链表，可以按照关键码排序的次序遍历全部记录。</li>
+</ul>
+<p><strong>B和B+树的区别</strong><br>B+树的非叶子结点只包含导航信息，不包含实际的值，所有的叶子结点和相连的节点使用链表相连，便于区间查找和遍历。<br><strong>B+ 树的优点在于：</strong></p>
+<ul>
+<li>由于B+树在内部节点上不好含数据信息，因此在内存页中能够存放更多的key。数据存放的更加紧密，具有更好的空间局部性。因此访问叶子几点上关联的数据也具有更好的缓存命中率。</li>
+<li>B+树的叶子结点都是相链的，因此对整棵树的便利只需要一次线性遍历叶子结点即可。而且由于数据顺序排列并且相连，所以便于区间查找和搜索。而B树则需要进行每一层的递归遍历。相邻的元素可能在内存中不相邻，所以缓存命中性没有B+树好。<br>但是B树也有优点，其优点在于，由于B树的每一个节点都包含key和value，因此经常访问的元素可能离根节点更近，因此访问也更迅速。</li>
+</ul>
+<p>B&#x2F;B+树常用于文件系统和数据库系统中，它通过对每个节点存储个数的扩展，使得对连续的数据能够进行较快的定位和访问，能够有效减少查找时间，提高存储的空间局部性从而减少IO操作。它广泛用于文件系统及数据库中，如：</p>
+<ul>
+<li>Windows：HPFS文件系统；</li>
+<li>Mac：HFS，HFS+文件系统；</li>
+<li>Linux：ResiserFS，XFS，Ext3FS，JFS文件系统；</li>
+<li>数据库：ORACLE，MYSQL，SQLSERVER等中。<br>有关B&#x2F;B+树在数据库索引中的应用，请看<a target="_blank" rel="noopener" href="http://blog.codinglabs.org/articles/theory-of-mysql-index.html">张洋的MySQL索引背后的数据结构及算法原理</a>这篇文章，这篇文章对MySQL中的如何使用B+树进行索引有比较详细的介绍，推荐阅读。</li>
+</ul>
+<p><strong>树表查找总结：</strong><br>二叉查找树平均查找性能不错，为O(logn)，但是最坏情况会退化为O(n)。在二叉查找树的基础上进行优化，我们可以使用平衡查找树。平衡查找树中的2-3查找树，这种数据结构在插入之后能够进行自平衡操作，从而保证了树的高度在一定的范围内进而能够保证最坏情况下的时间复杂度。但是2-3查找树实现起来比较困难，红黑树是2-3树的一种简单高效的实现，他巧妙地使用颜色标记来替代2-3树中比较难处理的3-node节点问题。红黑树是一种比较高效的平衡查找树，应用非常广泛，很多编程语言的内部实现都或多或少的采用了红黑树。<br>除此之外，2-3查找树的另一个扩展——B&#x2F;B+平衡树，在文件系统和数据库系统中有着广泛的应用。</p>
+<h3 id="6-分块查找"><a href="#6-分块查找" class="headerlink" title="6. 分块查找"></a>6. 分块查找</h3><p><strong>说明：</strong><br>分块查找又称索引顺序查找，它是顺序查找的一种改进方法。</p>
+<p><strong>基本思想：</strong><br>将n个数据元素&quot;按块有序&quot;划分为m块（m ≤ n）。每一块中的结点不必有序，但块与块之间必须&quot;按块有序&quot;；即第1块中任一元素的关键字都必须小于第2块中任一元素的关键字；而第2块中任一元素又都必须小于第3块中的任一元素，</p>
+<p><strong>复杂度分析：</strong><br><strong>算法流程：</strong><br>　　step1 先选取各块中的最大关键字构成一个索引表；<br>　　step2 查找分两个部分：先对索引表进行二分查找或顺序查找，以确定待查记录在哪一块中；然后，在已确定的块中用顺序法进行查找。</p>
+<h3 id="7-哈希查找"><a href="#7-哈希查找" class="headerlink" title="7. 哈希查找"></a>7. 哈希查找</h3><p><strong>说明：</strong><br><strong>什么是哈希表（Hash）？</strong><br>　　我们使用一个下标范围比较大的数组来存储元素。可以设计一个函数（哈希函数， 也叫做散列函数），使得每个元素的关键字都与一个函数值（即数组下标）相对应，于是用这个数组单元来存储这个元素；也可以简单的理解为，按照关键字为每一个元素&quot;分类&quot;，然后将这个元素存储在相应&quot;类&quot;所对应的地方。但是，不能够保证每个元素的关键字与函数值是一一对应的，因此极有可能出现对于不同的元素，却计算出了相同的函数值，这样就产生了&quot;冲突&quot;，换句话说，就是把不同的元素分在了相同的&quot;类&quot;之中。后面我们将看到一种解决&quot;冲突&quot;的简便做法。<br>　　总的来说，&quot;直接定址&quot;与&quot;解决冲突&quot;是哈希表的两大特点。<br><strong>什么是哈希函数？</strong><br>　　哈希函数的规则是：通过某种转换关系，使关键字适度的分散到指定大小的的顺序结构中，越分散，则以后查找的时间复杂度越小，空间复杂度越高。</p>
+<p><strong>基本思想：</strong><br>哈希的思路很简单，如果所有的键都是整数，那么就可以使用一个简单的无序数组来实现：将键作为索引，值即为其对应的值，这样就可以快速访问任意键的值。这是对于简单的键的情况，我们将其扩展到可以处理更加复杂的类型的键。</p>
+<p><strong>算法流程：</strong><br>1）用给定的哈希函数构造哈希表；<br>2）根据选择的冲突处理方法解决地址冲突；常见的解决冲突的方法：拉链法和线性探测法。详细的介绍可以参见：浅谈算法和数据结构: 十一 哈希表。<br>3）在哈希表的基础上执行哈希查找。哈希表是一个在时间和空间上做出权衡的经典例子。如果没有内存限制，那么可以直接将键作为数组的索引。那么所有的查找时间复杂度为O(1)；如果没有时间限制，那么我们可以使用无序数组并进行顺序查找，这样只需要很少的内存。哈希表使用了适度的时间和空间来在这两个极端之间找到了平衡。只需要调整哈希函数算法即可在时间和空间上做出取舍。</p>
+<p><strong>复杂度分析：</strong><br>单纯论查找复杂度：对于无冲突的Hash表而言，查找复杂度为O(1)（注意，在查找之前我们需要构建相应的Hash表）。</p>
+<p><strong>使用Hash，我们付出了什么？</strong><br>　　我们在实际编程中存储一个大规模的数据，最先想到的存储结构可能就是map，也就是我们常说的KV pair，经常使用Python的博友可能更有这种体会。使用map的好处就是，我们在后续处理数据处理时，可以根据数据的key快速的查找到对应的value值。map的本质就是Hash表，那我们在获取了超高查找效率的基础上，我们付出了什么？<br>　　Hash是一种典型以空间换时间的算法，比如原来一个长度为100的数组，对其查找，只需要遍历且匹配相应记录即可，从空间复杂度上来看，假如数组存储的是byte类型数据，那么该数组占用100byte空间。现在我们采用Hash算法，我们前面说的Hash必须有一个规则，约束键与存储位置的关系，那么就需要一个固定长度的hash表，此时，仍然是100byte的数组，假设我们需要的100byte用来记录键与位置的关系，那么总的空间为200byte,而且用于记录规则的表大小会根据规则，大小可能是不定的。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/c/" rel="tag"># c</a>
+              <a href="/tags/c/" rel="tag"># c++</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/04/09/algorithm-sort/" rel="prev" title="算法之排序">
+                  <i class="fa fa-angle-left"></i> 算法之排序
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/04/12/algorithm-application/" rel="next" title="算法之应用">
+                  算法之应用 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2018 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Navy</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/lzxy169" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

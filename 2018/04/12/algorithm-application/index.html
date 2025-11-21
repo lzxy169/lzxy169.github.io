@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inconsolata:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous" defer></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.lzxy169.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="递归(Recursive)当一个函数用它自己来定义时就称为时递归。阶乘、斐波那契数列和汉诺塔，帕斯卡三角形，也就是著名的杨辉三角 &#x2F;&#x2F; 递归void recursion_loop(int i) &#123;    if (i &#x3D;&#x3D; 10)        return;    else        recursion_loop(i + 1);&#125;&#x2F;&#x2F; 调用： recursion_loop(">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法之应用">
+<meta property="og:url" content="https://blog.lzxy169.com/2018/04/12/algorithm-application/index.html">
+<meta property="og:site_name" content="Navy&#39;s blog">
+<meta property="og:description" content="递归(Recursive)当一个函数用它自己来定义时就称为时递归。阶乘、斐波那契数列和汉诺塔，帕斯卡三角形，也就是著名的杨辉三角 &#x2F;&#x2F; 递归void recursion_loop(int i) &#123;    if (i &#x3D;&#x3D; 10)        return;    else        recursion_loop(i + 1);&#125;&#x2F;&#x2F; 调用： recursion_loop(">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.lzxy169.com/images/post/algorithm-application/WechatIMG2.jpeg">
+<meta property="og:image" content="https://blog.lzxy169.com/images/post/algorithm-application/WechatIMG3.jpeg">
+<meta property="article:published_time" content="2018-04-12T04:25:58.000Z">
+<meta property="article:modified_time" content="2025-11-21T03:39:43.559Z">
+<meta property="article:author" content="Navy">
+<meta property="article:tag" content="c">
+<meta property="article:tag" content="c++">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.lzxy169.com/images/post/algorithm-application/WechatIMG2.jpeg">
+
+
+<link rel="canonical" href="https://blog.lzxy169.com/2018/04/12/algorithm-application/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.lzxy169.com/2018/04/12/algorithm-application/","path":"2018/04/12/algorithm-application/","title":"算法之应用"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法之应用 | Navy's blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+  <script class="next-config" data-name="wavedrom" type="application/json">{"enable":true,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/wavedrom/3.5.0/wavedrom.min.js","integrity":"sha256-INLAoJc6quTNfiMWkGZniYO2cxE8mHpddnLow1m6RFs="}}</script>
+  <script class="next-config" data-name="wavedrom_skin" type="application/json">{"enable":true,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/wavedrom/3.5.0/skins/default.js","integrity":"sha256-fduc/Zszk5ezWws2uInY/ALWVmIrmV6VTgXbsYSReFI="}}</script>
+  <script src="/js/third-party/tags/wavedrom.js" defer></script>
+
+
+  <script src="/js/third-party/pace.js" defer></script>
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/3.0.1/quicklink.umd.js" integrity="sha256-44BednzIpUeQJcY8qtLyarFu0UCCTbgmWOvaoehiFQQ=" crossorigin="anonymous" defer></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://blog.lzxy169.com/2018/04/12/algorithm-application/"}</script>
+  <script src="/js/third-party/quicklink.js" defer></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Navy's blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Navy's blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">2</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">4</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">9</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%92%E5%BD%92-Recursive"><span class="nav-number">1.</span> <span class="nav-text">递归(Recursive)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%96%E5%B9%82%E8%BF%90%E7%AE%97"><span class="nav-number">2.</span> <span class="nav-text">取幂运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%B6%E4%B9%98"><span class="nav-number">3.</span> <span class="nav-text">阶乘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97-Fibonacci"><span class="nav-number">4.</span> <span class="nav-text">斐波那契数列(Fibonacci)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B1%89%E8%AF%BA%E5%A1%94"><span class="nav-number">5.</span> <span class="nav-text">汉诺塔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%95%E6%96%AF%E5%8D%A1%E4%B8%89%E8%A7%92%E5%BD%A2"><span class="nav-number">6.</span> <span class="nav-text">帕斯卡三角形</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B1%82%E4%B8%A4%E4%B8%AA%E6%95%B4%E6%95%B0%E7%9A%84%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0"><span class="nav-number">7.</span> <span class="nav-text">求两个整数的最大公约数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E7%94%A8%E4%B8%AD%E9%97%B4%E5%8F%98%E9%87%8F-%E7%94%A8%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95%E4%BA%A4%E6%8D%A2A%E5%92%8CB%E7%9A%84%E5%80%BC"><span class="nav-number">8.</span> <span class="nav-text">不用中间变量,用两种方法交换A和B的值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E2%80%9Chow-are-you%E2%80%9D%E7%9A%84%E9%80%86%E5%BA%8F%E8%BE%93%E5%87%BA"><span class="nav-number">9.</span> <span class="nav-text">实现一个字符串“how are you”的逆序输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%99%E5%AE%9A%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%8C%E8%BE%93%E5%87%BA%E6%9C%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E5%B9%B6%E4%B8%94%E6%9C%80%E9%9D%A0%E5%89%8D%E7%9A%84%E9%82%A3%E4%B8%AA%E5%AD%97%E7%AC%A6%E7%9A%84%E4%BD%8D%E7%BD%AE"><span class="nav-number">10.</span> <span class="nav-text">给定一个字符串，输出本字符串中只出现一次并且最靠前的那个字符的位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86"><span class="nav-number">11.</span> <span class="nav-text">二叉树遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93%E5%8D%B02-100%E4%B9%8B%E9%97%B4%E7%9A%84%E7%B4%A0%E6%95%B0-%E8%B4%A8%E6%95%B0"><span class="nav-number">12.</span> <span class="nav-text">打印2-100之间的素数(质数)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%99%E4%B8%80%E5%88%97%E6%97%A0%E5%BA%8F%E6%95%B0%E7%BB%84%EF%BC%8C%E6%B1%82%E5%87%BA%E4%B8%AD%E4%BD%8D%E6%95%B0%E5%B9%B6%E7%BB%99%E5%87%BA%E7%AE%97%E6%B3%95%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E3%80%82"><span class="nav-number">13.</span> <span class="nav-text">给一列无序数组，求出中位数并给出算法的时间复杂度。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E4%B8%80%E4%B8%AA%E6%95%B4%E5%9E%8B%E6%95%B0%E7%BB%84%EF%BC%8C%E6%B1%82%E5%87%BA%E5%AD%90%E6%95%B0%E7%BB%84%E5%92%8C%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC%EF%BC%8C%E5%B9%B6%E7%BB%99%E5%87%BA%E7%AE%97%E6%B3%95%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E3%80%82"><span class="nav-number">14.</span> <span class="nav-text">输入一个整型数组，求出子数组和的最大值，并给出算法的时间复杂度。</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Navy"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Navy</p>
+  <div class="site-description" itemprop="description">It is about walking the path and responding to the heart.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lzxy169" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lzxy169" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lzxy169@gmail.com" title="E-Mail → mailto:lzxy169@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.lzxy169.com/2018/04/12/algorithm-application/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Navy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Navy's blog">
+      <meta itemprop="description" content="It is about walking the path and responding to the heart.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法之应用 | Navy's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法之应用<a href="https://github.com/lzxy169/NavyBlogSource/edit/master/source/_posts/algorithm-application.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-04-12 12:25:58" itemprop="dateCreated datePublished" datetime="2018-04-12T12:25:58+08:00">2018-04-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-11-21 11:39:43" itemprop="dateModified" datetime="2025-11-21T11:39:43+08:00">2025-11-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h3 id="递归-Recursive"><a href="#递归-Recursive" class="headerlink" title="递归(Recursive)"></a>递归(Recursive)</h3><p>当一个函数用它自己来定义时就称为时递归。<br>阶乘、斐波那契数列和汉诺塔，帕斯卡三角形，也就是著名的杨辉三角</p>
+<figure class="highlight c"><figcaption><span>// 递归</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">recursion_loop</span><span class="params">(<span class="type">int</span> i)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (i == <span class="number">10</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        recursion_loop(i + <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 调用： recursion_loop(0);</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="取幂运算"><a href="#取幂运算" class="headerlink" title="取幂运算"></a>取幂运算</h3><p>计算x的N次方常见的算法是N-1次乘法自乘，递归的基准条件是：N&#x3D;&#x3D;0  此时返回1（不调用自身）。<br>若N是偶数，则x的N次方等于 x<em>x的N&#x2F;2次方。<br>若N是奇数，则x的N次方等于 x</em>x的N&#x2F;2次方在乘以x。<br>时间复杂度：O($\log_2 n$)</p>
+<figure class="highlight c"><figcaption><span>// 取幂运算</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="type">long</span> <span class="type">int</span> <span class="title function_">pow</span><span class="params">(<span class="type">long</span> <span class="type">int</span> x, <span class="type">unsigned</span> <span class="type">int</span> n)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">if</span> ((x &amp; <span class="number">1</span>) == <span class="number">0</span>) &#123; <span class="comment">// 偶数</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">pow</span>(x * x, n / <span class="number">2</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="comment">//        return pow(x * x, n / 2) * x;</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">pow</span>(x, n - <span class="number">1</span>) * x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="阶乘"><a href="#阶乘" class="headerlink" title="阶乘"></a>阶乘</h3><p>0!&#x3D;1，n!&#x3D;(n-1)!×n</p>
+<figure class="highlight c"><figcaption><span>// 阶乘</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="type">static</span> <span class="type">long</span> <span class="title function_">factorial</span><span class="params">(<span class="type">const</span> <span class="type">long</span> n)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> == n || <span class="number">1</span> == n ? <span class="number">1</span>  : n * factorial(n - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="斐波那契数列-Fibonacci"><a href="#斐波那契数列-Fibonacci" class="headerlink" title="斐波那契数列(Fibonacci)"></a>斐波那契数列(Fibonacci)</h3><p>又称黄金分割数列,以递归的方法定义：F(0)&#x3D;0，F(1)&#x3D;1, F(n)&#x3D;F(n-1)+F(n-2)（n&gt;&#x3D;2，n∈N*）<br>1, 1, 2, 3, 5, 8, 13, 21, 34...这个数列从第3项开始，每一项都等于前两项之和。</p>
+<figure class="highlight c"><figcaption><span>// Fibonacci</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="type">static</span> <span class="type">long</span> <span class="title function_">fib</span><span class="params">(<span class="type">const</span> <span class="type">long</span> n)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> == n || <span class="number">1</span> == n ? <span class="number">1</span> : fib(n - <span class="number">1</span>) + fib(n - <span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="汉诺塔"><a href="#汉诺塔" class="headerlink" title="汉诺塔"></a>汉诺塔</h3><p>假设有n片，移动次数是f(n).显然f(1)&#x3D;1,f(2)&#x3D;3,f(3)&#x3D;7，且f(k+1)&#x3D;2<em>f(k)+1 (等比数列)。<br>证明(数学归纳法) f(n)&#x3D;$2^n$-1。<br>a(n) &#x3D; 2</em>a(n-1) + 1;<br>a(n) + 1 &#x3D; 2*(a(n-1) + 1);<br>于是{a(n)+1}是首项为a(1)&#x3D;1，公比为2的等比数列，<br>求得a(n)+1 &#x3D; $2^n$，所以a(n) &#x3D; $2^n$ - 1;</p>
+<figure class="highlight c"><figcaption><span>// Fibonacci</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="type">static</span> <span class="type">void</span> <span class="title function_">move</span><span class="params">(<span class="type">const</span> <span class="type">char</span> x, <span class="type">const</span> <span class="type">int</span> n, <span class="type">const</span> <span class="type">char</span> z)</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;把圆盘 %d 从柱子 %c 移动到 %c 上\n&quot;</span>, n, x, z);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">static</span> <span class="type">void</span> <span class="title function_">hanoi</span><span class="params">(<span class="type">const</span> <span class="type">int</span> n, <span class="type">const</span> <span class="type">char</span> x, <span class="type">const</span> <span class="type">char</span> y, <span class="type">const</span> <span class="type">char</span> z)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="number">1</span> == n)</span><br><span class="line">        move(x, <span class="number">1</span>, z);          <span class="comment">// 如果只有一个盘，则直接将它从x移动到z</span></span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        hanoi(n - <span class="number">1</span>, x, z, y);  <span class="comment">// 把1 ~ n - 1个盘从x移动到y，用z作为中转</span></span><br><span class="line">        move(x, n, z);           <span class="comment">// 把第n个盘从x移动到z</span></span><br><span class="line">        hanoi(n - <span class="number">1</span>, y, x, z);  <span class="comment">// 把1 ~ n - 1个盘从y移动到z，用x作为中转</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="帕斯卡三角形"><a href="#帕斯卡三角形" class="headerlink" title="帕斯卡三角形"></a>帕斯卡三角形</h3><p>也就是著名的杨辉三角:三角形边界上的数都是1，内部的每个数是位于它上面的两个数之和。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1</span><br><span class="line">1    1</span><br><span class="line">1    2    1</span><br><span class="line">1    3    3    1</span><br><span class="line">1    4    6    4    1</span><br></pre></td></tr></table></figure>
+<p>利用递归我们可以很容易地把问题转换为这个性质：<br>假设：f(row, col)表示杨辉三角的第row行的第col个元素，那么：</p>
+<ol>
+<li>f(row, col) &#x3D; 1 (col &#x3D; 1 或者 row &#x3D; col)，也就是递归的停止条件。</li>
+<li>f(row, col) &#x3D; f(row - 1, col - 1) + f(row - 1, col)，也就是上一行的两个相邻元素的和。</li>
+</ol>
+<figure class="highlight c"><figcaption><span>// 帕斯卡三角形</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="type">static</span> <span class="type">long</span> <span class="title function_">GetElement</span><span class="params">(<span class="type">const</span> <span class="type">long</span> row, <span class="type">const</span> <span class="type">long</span> col)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> ((<span class="number">1</span> == col) || (row == col)) <span class="comment">// 每行的外围两个元素为1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="comment">// 其余的部分为上一行的(col - 1)和(col)元素之和</span></span><br><span class="line">        <span class="keyword">return</span> GetElement(row - <span class="number">1</span>, col - <span class="number">1</span>) + GetElement(row - <span class="number">1</span>, col);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="求两个整数的最大公约数"><a href="#求两个整数的最大公约数" class="headerlink" title="求两个整数的最大公约数"></a>求两个整数的最大公约数</h3><p>最大公约数:几个整数中公有的约数，叫做这几个数的公约数；其中最大的一个，叫做这几个数的最大公约数。<br>最小公倍数:公倍数(common multiple)指在两个或两个以上的自然数中，如果它们有相同的倍数，这些倍数就是它们的公倍数，其中除0以外最小的一个公倍数，叫做这几个数的最小公倍数。<br>两个数的乘积等于两个数的最大公约数和最小公倍数的乘积。</p>
+<p>最大公约数：同时整除两个整数的最大整数。<br>最小公倍数 &#x3D; (a * b)&#x2F;最大公约数。</p>
+<p>如果N整除A-B，那么我们就说A与B模N同余。</p>
+<figure class="highlight c"><figcaption><span>// 最大公约数</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1.直接遍历法</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">maxCommonDivisor</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">    <span class="type">int</span> max = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;=b; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (a % i == <span class="number">0</span> &amp;&amp; b % i == <span class="number">0</span>) &#123;</span><br><span class="line">            max = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.辗转相除法</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">maxCommonDivisor</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">    <span class="type">int</span> r;</span><br><span class="line">    <span class="keyword">while</span>(a % b &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        r = a % b;</span><br><span class="line">        a = b;</span><br><span class="line">        b = r;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.欧几里得算法计算最大公约数</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">gcd</span><span class="params">(<span class="type">int</span> m, <span class="type">int</span> n)</span> &#123;</span><br><span class="line">    <span class="type">int</span> rem;</span><br><span class="line">    <span class="keyword">while</span> (n &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        rem = m % n;</span><br><span class="line">        m = n;</span><br><span class="line">        n = rem;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> m;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="不用中间变量-用两种方法交换A和B的值"><a href="#不用中间变量-用两种方法交换A和B的值" class="headerlink" title="不用中间变量,用两种方法交换A和B的值"></a>不用中间变量,用两种方法交换A和B的值</h3><figure class="highlight c"><figcaption><span>// 交换</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1.中间变量</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">   <span class="type">int</span> temp = a;</span><br><span class="line">   a = b;</span><br><span class="line">   b = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.加法</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">   a = a + b;</span><br><span class="line">   b = a - b;</span><br><span class="line">   a = a - b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.异或（相同为0，不同为1. 可以理解为不进位加法）</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">   a = a ^ b;</span><br><span class="line">   b = a ^ b;</span><br><span class="line">   a = a ^ b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="实现一个字符串“how-are-you”的逆序输出"><a href="#实现一个字符串“how-are-you”的逆序输出" class="headerlink" title="实现一个字符串“how are you”的逆序输出"></a>实现一个字符串“how are you”的逆序输出</h3><p>如给定字符串为“hello world”,输出结果应当为“world hello”。</p>
+<figure class="highlight c"><figcaption><span>// 逆序</span></figcaption><table><tr><td class="code"><pre><span class="line"> <span class="type">int</span> <span class="title function_">spliterFunc</span><span class="params">(<span class="type">char</span> *p)</span> &#123;</span><br><span class="line">    <span class="type">char</span> c[<span class="number">100</span>][<span class="number">100</span>];</span><br><span class="line">    <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (*p != <span class="string">&#x27;\0&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (*p == <span class="string">&#x27; &#x27;</span>) &#123;</span><br><span class="line">            i++;</span><br><span class="line">            j = <span class="number">0</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            c[i][j] = *p;</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line">        p++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> k = i; k &gt;= <span class="number">0</span>; k--) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%s&quot;</span>, c[k]);</span><br><span class="line">        <span class="keyword">if</span> (k &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot; &quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="给定一个字符串，输出本字符串中只出现一次并且最靠前的那个字符的位置"><a href="#给定一个字符串，输出本字符串中只出现一次并且最靠前的那个字符的位置" class="headerlink" title="给定一个字符串，输出本字符串中只出现一次并且最靠前的那个字符的位置"></a>给定一个字符串，输出本字符串中只出现一次并且最靠前的那个字符的位置</h3><p>如“abaccddeeef”,字符是b,输出应该是2。</p>
+<figure class="highlight c"><figcaption><span>// 输出字符串</span></figcaption><table><tr><td class="code"><pre><span class="line"> <span class="type">char</span> *<span class="title function_">strOutPut</span><span class="params">(<span class="type">char</span> *)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">compareDifferentChar</span><span class="params">(<span class="type">char</span>, <span class="type">char</span> *)</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">const</span> <span class="type">char</span> * argv[])</span> &#123;</span><br><span class="line">    <span class="type">char</span> *inputStr = <span class="string">&quot;abaccddeeef&quot;</span>;</span><br><span class="line">    <span class="type">char</span> *outputStr = strOutPut(inputStr);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%c \n&quot;</span>, *outputStr);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">char</span> *<span class="title function_">strOutPut</span><span class="params">(<span class="type">char</span> *s)</span> &#123;</span><br><span class="line">    <span class="type">char</span> str[<span class="number">100</span>];</span><br><span class="line">    <span class="type">char</span> *p = s;</span><br><span class="line">    <span class="type">int</span> index = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (*s != <span class="string">&#x27;\0&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (compareDifferentChar(*s, p) == <span class="number">1</span>) &#123;</span><br><span class="line">            str[index] = *s;</span><br><span class="line">            index++;</span><br><span class="line">        &#125;</span><br><span class="line">        s++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> &amp;str;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">compareDifferentChar</span><span class="params">(<span class="type">char</span> c, <span class="type">char</span> *s)</span> &#123;</span><br><span class="line">    <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (*s != <span class="string">&#x27;\0&#x27;</span> &amp;&amp; i&lt;= <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (*s == c) &#123;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        s++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (i == <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="二叉树遍历"><a href="#二叉树遍历" class="headerlink" title="二叉树遍历"></a>二叉树遍历</h3><p>二叉树的先序遍历为FBACDEGH,中序遍历为：ABDCEFGH,请写出这个二叉树的后序遍历结果。<br>ADECBHGF</p>
+<p><img src="/images/post/algorithm-application/WechatIMG2.jpeg" loading="lazy"></p>
+<p>先序遍历：++a<em>bc</em>+*defg :<br>根-----&gt;左——&gt;右 :先访问根节点，前序遍历左子树，再前序遍历右子树。（简记为：VLR）</p>
+<p>中序遍历：(a+b<em>c)+((d</em>e+f)*g) :<br>左-----&gt;根-----&gt;右 :从根节点开始，中序遍历根节点的左子树，然后访问根节点，最后中序遍历右子树。（简记为：LVR）</p>
+<p>后序遍历：abc*+de<em>f+g</em>+ :<br>左-----&gt;右-----&gt;根 :从左到右先叶子后节点的方式遍历访问左右子树，左右子树都访问结束，才访问根节点。（简称LRV）</p>
+<p>层序遍历：++<em>a</em>+gbc*fde :<br>左---&gt;右  上---&gt;下</p>
+<p><img src="/images/post/algorithm-application/WechatIMG3.jpeg" loading="lazy"><br>先序+中序遍历还原二叉树：先序遍历是：ABDEGCFH 中序遍历是：DBGEACHF<br>首先从先序得到第一个为A，就是二叉树的根，回到中序，可以将其分为三部分：<br>左子树的中序序列DBGE，根A，右子树的中序序列CHF<br>接着将左子树的序列回到先序可以得到B为根，这样回到左子树的中序再次将左子树分割为三部分：<br>左子树的左子树D，左子树的根B，左子树的右子树GE<br>同样地，可以得到右子树的根为C<br>类似地将右子树分割为根C，右子树的右子树HF，注意其左子树为空<br>如果只有一个就是叶子不用再进行了，刚才的GE和HF再次这样运作，就可以将二叉树还原了。<br>后序遍历：DGEBHFCA</p>
+<h3 id="打印2-100之间的素数-质数"><a href="#打印2-100之间的素数-质数" class="headerlink" title="打印2-100之间的素数(质数)"></a>打印2-100之间的素数(质数)</h3><p>质数又称素数。一个大于1的自然数，除了1和它自身外，不能整除其他自然数的数叫做质数；否则称为合数。<br>在一般领域，对正整数n，如果用 2 到 $\sqrt n$ 之间的所有整数去除，均无法整除，则n为质数。</p>
+<figure class="highlight c"><figcaption><span>// 素数</span></figcaption><table><tr><td class="code"><pre><span class="line"> <span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">const</span> <span class="type">char</span> * argv[])</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">        <span class="type">int</span> r = isPrime(i);</span><br><span class="line">        <span class="keyword">if</span> (r == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%ld &quot;</span>, i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">isPrime</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">    <span class="type">int</span> i, s;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">2</span>; i &lt;= <span class="built_in">sqrt</span>(n); i++)</span><br><span class="line">        <span class="keyword">if</span>(n % i == <span class="number">0</span>)  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="给一列无序数组，求出中位数并给出算法的时间复杂度。"><a href="#给一列无序数组，求出中位数并给出算法的时间复杂度。" class="headerlink" title="给一列无序数组，求出中位数并给出算法的时间复杂度。"></a>给一列无序数组，求出中位数并给出算法的时间复杂度。</h3><p>若数组有奇数个元素，中位数是a[(n-1)&#x2F;2]；<br>若数组有偶数个元素，中位数为a[n&#x2F;2-1]和a[n&#x2F;2]两个数的平均值。<br>这里为方便起见，假设数组为奇数个元素。</p>
+<p>**思路一：**把无序数组排好序，取出中间的元素。<br>时间复杂度取决于排序算法，最快是快速排序，O(n$\log_2 n$)，或者是非比较的基数排序，时间为O(n),空间为O(n)。这明显不是我们想要的。</p>
+<p>**思路二：**采用快速排序的分治partition过程。<br>任意挑一个元素，以该元素为支点，将数组分成两部分，左边是小于等于支点的，右边是大于支点的。<br>如果左侧长度正好是(n - 1)&#x2F;2，那么支点恰为中位数。<br>如果左侧长度&lt;(n-1)&#x2F;2, 那么中位数在右侧，反之，中位数在左侧，进入相应的一侧继续寻找中位数。</p>
+<figure class="highlight c"><figcaption><span>// 快速排序的分治过程找无序数组的中位数</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">partition</span><span class="params">(<span class="type">int</span> a[], <span class="type">int</span> low, <span class="type">int</span> high)</span>  &#123; <span class="comment">// 快排的一次排序过程</span></span><br><span class="line">    <span class="type">int</span> q = a[low];</span><br><span class="line">    <span class="keyword">while</span> (low &lt; high) &#123;</span><br><span class="line">        <span class="keyword">while</span> (low &lt; high &amp;&amp; a[high] &gt;= q)</span><br><span class="line">            high--;</span><br><span class="line">        a[low] = a[high];</span><br><span class="line">        <span class="keyword">while</span> (low &lt; high &amp;&amp; a[low] &lt;= q)</span><br><span class="line">            low++;</span><br><span class="line">        a[high] = a[low];</span><br><span class="line">    &#125;</span><br><span class="line">    a[low] = q;</span><br><span class="line">    <span class="keyword">return</span> low;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">findMidium</span><span class="params">(<span class="type">int</span> a[], <span class="type">int</span> n)</span> &#123;</span><br><span class="line">    <span class="type">int</span> index = n / <span class="number">2</span>;</span><br><span class="line">    <span class="type">int</span> left = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> right = n - <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> q = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span> (index != q) &#123;</span><br><span class="line">        q = partition(a, left, right);</span><br><span class="line">        <span class="keyword">if</span> (q &lt; index)</span><br><span class="line">            left = q + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (q&gt;index)</span><br><span class="line">            right = q - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> a[index];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>**思路三：**将数组的前(n+1)&#x2F;2个元素建立一个最小堆。<br>然后，对于下一个元素，和堆顶的元素比较，如果小于等于，丢弃之，如果大于，则用该元素取代堆顶，再调整堆，接着看下一个元素。<br>重复这个步骤，直到数组为空。当数组都遍历完了，(堆中元素为最大的(n+1)&#x2F;2个元素) 堆顶的元素即是中位数。</p>
+<figure class="highlight c"><figcaption><span>// 构建最小堆找无序数组的中位数</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">nswap</span><span class="params">(<span class="type">int</span>&amp; i, <span class="type">int</span>&amp; j)</span> &#123;</span><br><span class="line">    i = i^j;</span><br><span class="line">    j = i^j;</span><br><span class="line">    i = i^j;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">minHeapify</span><span class="params">(<span class="type">int</span> a[], <span class="type">int</span> i, <span class="type">int</span> len)</span> &#123;</span><br><span class="line">    <span class="type">int</span> least = i; <span class="comment">// 根节点,最小的</span></span><br><span class="line">    <span class="type">int</span> l = i * <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> r = i * <span class="number">2</span> + <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span> (l &lt; len &amp;&amp; a[l] &lt; a[least])</span><br><span class="line">        least = l;</span><br><span class="line">    <span class="keyword">if</span> (r &lt; len &amp;&amp; a[r] &lt; a[least])</span><br><span class="line">        least = r;</span><br><span class="line">    <span class="keyword">if</span> (least != i) &#123;</span><br><span class="line">        nswap(a[i], a[least]);</span><br><span class="line">        minHeapify(a, least, len);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">buildMinHeap</span><span class="params">(<span class="type">int</span> a[], <span class="type">int</span> len)</span> &#123;</span><br><span class="line">    <span class="comment">// len/2-1 或者 (len-2) / 2, 为最后一个非叶子节点</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = (len<span class="number">-2</span>) / <span class="number">2</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        minHeapify(a, i, len);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">findMidium2</span><span class="params">(<span class="type">int</span> a[], <span class="type">int</span> n)</span> &#123;</span><br><span class="line">    buildMinHeap(a, (n + <span class="number">1</span>) / <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = (n + <span class="number">1</span>) / <span class="number">2</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i] &gt; a[<span class="number">0</span>]) &#123;</span><br><span class="line">            nswap(a[i], a[<span class="number">0</span>]);</span><br><span class="line">            minHeapify(a, <span class="number">0</span>,(n + <span class="number">1</span>) / <span class="number">2</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> a[<span class="number">0</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>引申一：查找N个元素中的第K个小的元素</strong><br>编程珠玑给出了一个时间复杂度O(N)的解决方案。该方案改编自快速排序。<br>经过快排的一次划分，<br>   1）如果左半部份的长度&gt;K-1，那么这个元素就肯定在左半部份了<br>   2）如果左半部份的长度&#x3D;&#x3D;K-1，那么当前划分元素就是结果了。<br>   3）如果。。。。。。。&lt;K-1,那么这个元素就肯定在右半部分了。<br>并且，该方法可以用尾递归实现。效率更高。<br>也可以用来查找N个元素中的前K个小的元素，前K个大的元素。。。。等等。</p>
+<p><strong>引申二：查找N个元素中的第K个小的元素，假设内存受限，仅能容下K&#x2F;4个元素。</strong><br>分趟查找，<br>第一趟，用堆方法查找最小的K&#x2F;4个小的元素，同时记录剩下的N-K&#x2F;4个元素到外部文件。<br>第二趟，用堆方法从第一趟筛选出的N-K&#x2F;4个元素中查找K&#x2F;4个小的元素，同时记录剩下的N-K&#x2F;2个元素到外部文件。<br>。。。<br>第四趟，用堆方法从第一趟筛选出的N-K&#x2F;3个元素中查找K&#x2F;4个小的元素，这是的第K&#x2F;4小的元素即使所求。</p>
+<h3 id="输入一个整型数组，求出子数组和的最大值，并给出算法的时间复杂度。"><a href="#输入一个整型数组，求出子数组和的最大值，并给出算法的时间复杂度。" class="headerlink" title="输入一个整型数组，求出子数组和的最大值，并给出算法的时间复杂度。"></a>输入一个整型数组，求出子数组和的最大值，并给出算法的时间复杂度。</h3><p>假如只有两个数，a[0] and a[1]。<br>这样，最大值存在的情况，无非就是：a[0], a[0] + a[1], a[1]。这个过程基本就是三个数字中，找到最大值的过程。</p>
+<p>然后推广到n的时候，从0-&gt;n - 1遍历只要重复这个过程，就能简单的获取到最终的最大值。</p>
+<p>假设现在有三个数字a[0] a[1] a[2].<br>这样先比较前两个元素，a[0],a[1],以及a[0] + a[1]。因为下次的比较需要将前面的a[0]+a[1]作为一个整体加入到下一次的比较中，所以需要有一个值能够用来表示其和。这个变量用nStart表示。<br>nAll则是相当于每次比较中的a[0]。那么每次的比较的顺序就是：a[1]和a[0] + a[1]比较。nStart取其最大值，然后在和相当于a[0]的nAll比较。如此往复，当线性遍历结束的时候，就成功的获取到了最大值。</p>
+<p>时间复杂度O(n)，空间复杂度为O(1)。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">#define max(a, b) (a)&gt;(b)?(a):(b)</span><br><span class="line"></span><br><span class="line">int MaxSubArray(int *a, int n) &#123;</span><br><span class="line">    int nStart = a[0];</span><br><span class="line">    int nAll = a[0];</span><br><span class="line">    for (int i = 1; i &lt; n; ++i) &#123;</span><br><span class="line">        nStart = max(a[i], nStart + a[i]);</span><br><span class="line">        nAll = max(nStart, nAll);</span><br><span class="line">    &#125;</span><br><span class="line">    return nAll;</span><br><span class="line">&#125;</span><br><span class="line">int main() &#123;</span><br><span class="line">    cout &lt;&lt; &quot;Hello world!&quot; &lt;&lt; endl;</span><br><span class="line">    int array[] = &#123;10, -1, 3, -11, -20, 33, 1, -6, 13&#125;;</span><br><span class="line">    cout &lt;&lt; MaxSubArray(array, sizeof(array)/sizeof(int)) &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/c/" rel="tag"># c</a>
+              <a href="/tags/c/" rel="tag"># c++</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/04/10/algorithm-search/" rel="prev" title="算法之查找">
+                  <i class="fa fa-angle-left"></i> 算法之查找
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/04/13/c:c++-memory-management/" rel="next" title="C&#x2F;C++内存管理">
+                  C/C++内存管理 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2018 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Navy</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/lzxy169" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
